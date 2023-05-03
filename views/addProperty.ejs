@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/header') %>
+  <body>
+    <%- include('./partials/navbar') %>
+    <div class="container m-lg-auto p-4 card w-50 m-lg-4">
+      <h1>Add Property</h1>
+      <form enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="property-type">Property Type</label>
+          <select class="form-control" id="property-type" name="property-type">
+            <option value="land">Land</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+          </select>
+        </div>
+        <div id="land-details" class="property-details">
+          <div class="form-group">
+            <label for="land-location">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="land-location"
+              name="land-location"
+            />
+          </div>
+          <div class="form-group">
+            <label for="land-area">Area (in square meters)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="land-area"
+              name="land-area"
+            />
+          </div>
+          <div class="form-group">
+            <label for="land-total-price">Total Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="land-total-price"
+              name="land-total-price"
+            />
+          </div>
+          <div class="form-group">
+            <label for="land-price-per-square">Price per Square Meter</label>
+            <input
+              type="number"
+              class="form-control"
+              id="land-price-per-square"
+              name="land-price-per-square"
+            />
+          </div>
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" id="image" name="image" />
+          </div>
+        </div>
+        <div id="apartment-details" class="property-details d-none">
+          <div class="form-group">
+            <label for="apartment-number">Apartment Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apartment-number"
+              name="apartment-number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="apartment-type">Apartment Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apartment-type"
+              name="apartment-type"
+            />
+          </div>
+          <div class="form-group">
+            <label for="apartment-bedrooms">Number of Bedrooms</label>
+            <input
+              type="number"
+              class="form-control"
+              id="apartment-bedrooms"
+              name="apartment-bedrooms"
+            />
+          </div>
+          <div class="form-group">
+            <label for="apartment-level">Apartment Level</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apartment-level"
+              name="apartment-level"
+            />
+          </div>
+          <div class="form-group">
+            <label for="apartment-building">Apartment Building</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apartment-building"
+              name="apartment-building"
+            />
+          </div>
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" id="image" name="image" />
+          </div>
+        </div>
+        <div id="villa-details" class="property-details d-none">
+          <div class="form-group">
+            <label for="villa-number">Villa Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="villa-number"
+              name="villa-number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="villa-door-number">Villa Door Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="villa-door-number"
+              name="villa-door-number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="villa-stories">Number of Stories</label>
+            <input
+              type="number"
+              class="form-control"
+              id="villa-stories"
+              name="villa-stories"
+            />
+          </div>
+          <div class="form-group">
+            <label for="villa-garage">Garage</label>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="villa-garage"
+                name="villa-garage"
+              />
+              <label class="form-check-label" for="villa-garage"
+                >Has garage</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="villa-servant-room">Servant Room</label>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="villa-servant-room"
+                name="villa-servant-room"
+              />
+              <label class="form-check-label" for="villa-servant-room"
+                >Has servant room</label
+              >
+            </div>
+            <div class="form-group mt-4">
+              <label for="image">Upload Image</label>
+              <input type="file" class="form-control" id="image" name="image" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const propertyTypeSelect = document.getElementById("property-type");
+      const landDetails = document.getElementById("land-details");
+      const apartmentDetails = document.getElementById("apartment-details");
+      const villaDetails = document.getElementById("villa-details");
+
+      propertyTypeSelect.addEventListener("change", function () {
+        if (this.value === "land") {
+          landDetails.classList.remove("d-none");
+          apartmentDetails.classList.add("d-none");
+          villaDetails.classList.add("d-none");
+        } else if (this.value === "apartment") {
+          landDetails.classList.add("d-none");
+          apartmentDetails.classList.remove("d-none");
+          villaDetails.classList.add("d-none");
+        } else if (this.value === "villa") {
+          landDetails.classList.add("d-none");
+          apartmentDetails.classList.add("d-none");
+          villaDetails.classList.remove("d-none");
+        }
+      });
+    </script>
+  </body>
+</html>

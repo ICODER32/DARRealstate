@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<%- include('./partials/header') %>
+<body>
+<%- include('./partials/navbar') %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Sign up</div>
+          <div class="card-body">
+            <form action="/api/users" method="POST" id="signup-form">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" class="form-control" id="full-name" name="fullName" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select class="form-control" id="role" name="role" required>
+                  <option value="">Select role</option>
+                  <option value="buyer">Buyer</option>
+                  <option value="seller">Seller</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" required>
+              </div>
+              <button type="submit" class="btn btn-primary" id="signup-btn" disabled>Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var passwordInput = document.getElementById('password');
+    var confirmPasswordInput = document.getElementById('confirm-password');
+    var signupButton = document.getElementById('signup-btn');
+    
+    confirmPasswordInput.addEventListener('keyup', function() {
+      if (passwordInput.value === confirmPasswordInput.value) {
+        signupButton.disabled = false;
+      } else {
+        signupButton.disabled = true;
+      }
+    });
+  </script>
+
+
+
+
+
+</body>
+</html>
