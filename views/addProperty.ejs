@@ -5,10 +5,14 @@
     <%- include('./partials/navbar') %>
     <div class="container m-lg-auto p-4 card w-50 m-lg-4">
       <h1>Add Property</h1>
-      <form enctype="multipart/form-data">
+      <form
+        method="post"
+        action="/api/properties"
+        enctype="multipart/form-data"
+      >
         <div class="form-group">
           <label for="property-type">Property Type</label>
-          <select class="form-control" id="property-type" name="property-type">
+          <select class="form-control" id="property-type" name="propertytype">
             <option value="land">Land</option>
             <option value="apartment">Apartment</option>
             <option value="villa">Villa</option>
@@ -21,7 +25,7 @@
               type="text"
               class="form-control"
               id="land-location"
-              name="land-location"
+              name="location"
             />
           </div>
           <div class="form-group">
@@ -30,7 +34,7 @@
               type="number"
               class="form-control"
               id="land-area"
-              name="land-area"
+              name="area"
             />
           </div>
           <div class="form-group">
@@ -39,7 +43,7 @@
               type="number"
               class="form-control"
               id="land-total-price"
-              name="land-total-price"
+              name="totalPrice"
             />
           </div>
           <div class="form-group">
@@ -48,12 +52,8 @@
               type="number"
               class="form-control"
               id="land-price-per-square"
-              name="land-price-per-square"
+              name="pricePerSquareMeter"
             />
-          </div>
-          <div class="form-group">
-            <label for="image">Upload Image</label>
-            <input type="file" class="form-control" id="image" name="image" />
           </div>
         </div>
         <div id="apartment-details" class="property-details d-none">
@@ -114,7 +114,7 @@
               type="text"
               class="form-control"
               id="villa-number"
-              name="villa-number"
+              name="villa_number"
             />
           </div>
           <div class="form-group">
@@ -123,7 +123,7 @@
               type="text"
               class="form-control"
               id="villa-door-number"
-              name="villa-door-number"
+              name="villa_door_number"
             />
           </div>
           <div class="form-group">
@@ -132,7 +132,7 @@
               type="number"
               class="form-control"
               id="villa-stories"
-              name="villa-stories"
+              name="stories_number"
             />
           </div>
           <div class="form-group">
@@ -142,7 +142,7 @@
                 type="checkbox"
                 class="form-check-input"
                 id="villa-garage"
-                name="villa-garage"
+                name="garage"
               />
               <label class="form-check-label" for="villa-garage"
                 >Has garage</label
@@ -156,18 +156,15 @@
                 type="checkbox"
                 class="form-check-input"
                 id="villa-servant-room"
-                name="villa-servant-room"
+                name="serventRoom"
               />
               <label class="form-check-label" for="villa-servant-room"
                 >Has servant room</label
               >
             </div>
-            <div class="form-group mt-4">
-              <label for="image">Upload Image</label>
-              <input type="file" class="form-control" id="image" name="image" />
-            </div>
           </div>
         </div>
+        <button type="submit">Submit</button>
       </form>
     </div>
 

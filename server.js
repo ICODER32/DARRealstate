@@ -18,6 +18,7 @@ app.set("views", "views");
 
 app.use(require("./routes/pages"));
 app.use("/api/users", require("./routes/user"));
+app.use("/api/properties", require("./routes/land"));
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT} `);
