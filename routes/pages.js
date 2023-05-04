@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const Land = require("../models/Land");
+const Apartment = require("../models/Apartment");
+const Villa = require("../models/Villa");
 
 router.get("/", (req, res) => {
   const user_id = req.cookies.user_id;

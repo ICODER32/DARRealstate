@@ -5,18 +5,144 @@
     <!-- Navbar -->
 
     <%- include('./partials/navbar') %>
-    <!-- Main content -->
-    <div class="container w-50 p-5 mt-lg-5">
-      <div class="card">
-        <div class="card-body">
-          <h1 class="card-title text-center">Welcome to DAR Real Estate</h1>
-          <p class="card-text text-center">Find your dream home today</p>
-          <div class="text-center">
-            <button class="btn btn-primary">Get Started</button>
+
+    <span class="navbar navbar-light bg-light">
+      <div class="container">
+        <div class="dropdown ml-auto">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="filterDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Filter Properties
+          </button>
+          <div class="dropdown-menu" aria-labelledby="filterDropdown">
+            <span id="all_btn" class="dropdown-item">All</span>
+            <span id="apartment_btn" class="dropdown-item">Apartments</span>
+            <span id="land_btn" class="dropdown-item">Land</span>
+            <span id="villa_btn" class="dropdown-item">Villa</span>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <div id="land_div" class="container">
+      <h1 class="text-center">Lands</h1>
+      <div class="container my-4">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img
+                src="https://picsum.photos/id/100/300/200"
+                class="card-img-top"
+                alt="Property Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Example Property 1</h5>
+                <p class="card-text"><strong>Type:</strong> Apartment</p>
+                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <p class="card-text">
+                  <strong>Location:</strong> Example Location
+                </p>
+                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+              </div>
+              <button class="btn-success">Book Now</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div id="apartment_div" class="container">
+      <h1 class="text-center">Apartments</h1>
+      <div class="container my-4">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img
+                src="https://picsum.photos/id/100/300/200"
+                class="card-img-top"
+                alt="Property Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Example Property 1</h5>
+                <p class="card-text"><strong>Type:</strong> Apartment</p>
+                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <p class="card-text">
+                  <strong>Location:</strong> Example Location
+                </p>
+                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+              </div>
+              <button class="btn-success">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="villa_div" class="container">
+      <h1 class="text-center">Villas</h1>
+      <div class="container my-4">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img
+                src="https://picsum.photos/id/100/300/200"
+                class="card-img-top"
+                alt="Property Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Example Property 1</h5>
+                <p class="card-text"><strong>Type:</strong> Apartment</p>
+                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <p class="card-text">
+                  <strong>Location:</strong> Example Location
+                </p>
+                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+              </div>
+              <button class="btn-success">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const all_btn = document.getElementById("all_btn");
+      const apartment_btn = document.getElementById("apartment_btn");
+      const land_btn = document.getElementById("land_btn");
+      const villa_btn = document.getElementById("villa_btn");
+      const land_div = document.getElementById("land_div");
+      const apartment_div = document.getElementById("apartment_div");
+      const villa_div = document.getElementById("villa_div");
+
+      all_btn.addEventListener("click", () => {
+        land_div.classList.remove("d-none");
+        apartment_div.classList.remove("d-none");
+        villa_div.classList.remove("d-none");
+      });
+
+      apartment_btn.addEventListener("click", () => {
+        land_div.classList.add("d-none");
+        apartment_div.classList.remove("d-none");
+        villa_div.classList.add("d-none");
+      });
+
+      land_btn.addEventListener("click", () => {
+        land_div.classList.remove("d-none");
+        apartment_div.classList.add("d-none");
+        villa_div.classList.add("d-none");
+      });
+
+      villa_btn.addEventListener("click", () => {
+        land_div.classList.add("d-none");
+        apartment_div.classList.add("d-none");
+        villa_div.classList.remove("d-none");
+      });
+    </script>
 
     <!-- Bootstrap JS -->
     <script
