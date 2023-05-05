@@ -33,25 +33,33 @@
       <h1 class="text-center">Lands</h1>
       <div class="container my-4">
         <div class="row">
+          <% if (lands.length > 0) { %> <% lands.forEach(item => { %>
           <div class="col-md-4 mb-4">
             <div class="card">
               <img
-                src="https://picsum.photos/id/100/300/200"
+                src="/uploads/<%= item.image %>"
                 class="card-img-top"
                 alt="Property Image"
               />
               <div class="card-body">
-                <h5 class="card-title">Example Property 1</h5>
-                <p class="card-text"><strong>Type:</strong> Apartment</p>
-                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <h5 class="card-title">Location : <%= item.location %></h5>
+                <p class="card-text"><strong>Area:</strong> <%= item.area %></p>
                 <p class="card-text">
-                  <strong>Location:</strong> Example Location
+                  <strong>Total Price:</strong> <%= item.totalPrice %>
                 </p>
-                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+                <p class="card-text">
+                  <strong>Price Per Square Meter:</strong> <%=
+                  item.pricePerSquareMeter %>
+                </p>
               </div>
-              <button class="btn-success">Book Now</button>
+              <button class="btn btn-success">
+                <a class="text-white" href="/land/<%= item._id %>">Book Now</a>
+              </button>
             </div>
           </div>
+          <% }); %> <% } else { %>
+          <h1>No Land Available</h1>
+          <% } %>
         </div>
       </div>
     </div>
@@ -60,25 +68,41 @@
       <h1 class="text-center">Apartments</h1>
       <div class="container my-4">
         <div class="row">
+          <% if (apartments.length > 0) { %> <% apartments.forEach(item => { %>
           <div class="col-md-4 mb-4">
             <div class="card">
               <img
-                src="https://picsum.photos/id/100/300/200"
+                src="/uploads/<%= item.image %>"
                 class="card-img-top"
                 alt="Property Image"
               />
               <div class="card-body">
-                <h5 class="card-title">Example Property 1</h5>
-                <p class="card-text"><strong>Type:</strong> Apartment</p>
-                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <h5 class="card-title">
+                  Apartment Number : <%= item.apartment_number %>
+                </h5>
                 <p class="card-text">
-                  <strong>Location:</strong> Example Location
+                  <strong>Type:</strong> <%= item.apartment_type %>
                 </p>
-                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+                <p class="card-text">
+                  <strong>Rooms:</strong> <%= item.bed_rooms %>
+                </p>
+                <p class="card-text">
+                  <strong>Bulding:</strong> <%= item.apartment_building %>
+                </p>
+                <p class="card-text">
+                  <strong>Apartment Level:</strong> <%= item.apartment_level %>
+                </p>
               </div>
-              <button class="btn-success">Book Now</button>
+              <button class="btn btn-success">
+                <a class="text-white" href="/apartment/<%= item._id %>"
+                  >Book Now</a
+                >
+              </button>
             </div>
           </div>
+          <% }); %> <% } else { %>
+          <h1>No Apartments Available</h1>
+          <% } %>
         </div>
       </div>
     </div>
@@ -87,25 +111,41 @@
       <h1 class="text-center">Villas</h1>
       <div class="container my-4">
         <div class="row">
+          <% if (villas.length > 0) { %> <% villas.forEach(item => { %>
           <div class="col-md-4 mb-4">
             <div class="card">
               <img
-                src="https://picsum.photos/id/100/300/200"
+                src="/uploads/<%= item.image %>"
                 class="card-img-top"
                 alt="Property Image"
               />
               <div class="card-body">
-                <h5 class="card-title">Example Property 1</h5>
-                <p class="card-text"><strong>Type:</strong> Apartment</p>
-                <p class="card-text"><strong>Rooms:</strong> 2</p>
+                <h5 class="card-title">
+                  Villa Number : <%= item.villa_number %>
+                </h5>
                 <p class="card-text">
-                  <strong>Location:</strong> Example Location
+                  <strong>Door Number:</strong> <%= item.villa_door_number %>
                 </p>
-                <p class="card-text"><strong>Area:</strong> 100 sqm</p>
+                <p class="card-text">
+                  <strong>Stories:</strong> <%= item.stories_number %>
+                </p>
+                <p class="card-text">
+                  <strong>Garage:</strong> <%= (item.garage) ? 'Available' :
+                  'Not Available' %>
+                </p>
+                <p class="card-text">
+                  <strong>Servent Room:</strong> <%= (item.serventRoom) ?
+                  'Available' : 'Not Available' %>
+                </p>
               </div>
-              <button class="btn-success">Book Now</button>
+              <button class="btn btn-success">
+                <a class="text-white" href="/villa/<%= item._id %>">Book Now</a>
+              </button>
             </div>
           </div>
+          <% }); %> <% } else { %>
+          <h1>No Villa Available</h1>
+          <% } %>
         </div>
       </div>
     </div>
