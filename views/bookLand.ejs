@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/header') %>
+  <body>
+    <!-- Navbar -->
+
+    <%- include('./partials/navbar') %>
+    <h1 class="text-center m-3">Confirm Booking</h1>
+    <div class="container m-4">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            style="height: 600px; width: 400px"
+            src="/uploads/<%= data.image%>"
+            class="img-responsive"
+          />
+        </div>
+        <div class="col-md-6">
+          <form method="post" action="/api/bookings/land">
+            <div class="form-group">
+              <label for="location">Location:</label>
+              <input
+                readonly
+                value="<%= data.location %>"
+                type="text"
+                class="form-control"
+                id="location"
+                name="location"
+              />
+            </div>
+            <div class="form-group">
+              <label for="area">Area:</label>
+              <input
+                readonly
+                value="<%= data.area %>"
+                type="text"
+                class="form-control"
+                id="area"
+                name="area"
+              />
+            </div>
+            <div class="form-group">
+              <label for="total-price">Total Price:</label>
+              <input
+                value="<%= data.totalPrice %>"
+                readonly
+                type="text"
+                class="form-control"
+                id="total-price"
+                name="totalPrice"
+              />
+            </div>
+            <div class="form-group">
+              <label for="price-per-sq-m">Price per Square Meter:</label>
+              <input
+                readonly
+                value="<%= data.pricePerSquareMeter %>"
+                type="text"
+                class="form-control"
+                id="price-per-sq-m"
+                name="pricePerSquareMeter"
+              />
+            </div>
+            
+            
+            <div class="form-group">
+              <label for="price-per-sq-m">Owner Name:</label>
+              <input
+                readonly
+                value="<%= data.owner_details.name %>"
+                type="text"
+                class="form-control"
+                id="price-per-sq-m"
+              />
+            </div>
+            <div class="form-group">
+              <label for="price-per-sq-m">Owner Email:</label>
+              <input
+                readonly
+                value="<%= data.owner_details.email %>"
+                type="text"
+                class="form-control"
+                id="price-per-sq-m"
+              />
+            </div>
+            
+            <% if(ownProperty){%>
+            <button class="btn btn-success" disabled>Own Property</button>
+            <%} else {%>
+            <button type="submit" class="btn btn-success">Confirm Booking</button>
+            <%}%>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

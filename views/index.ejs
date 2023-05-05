@@ -4,8 +4,9 @@
   <body>
     <!-- Navbar -->
 
-    <%- include('./partials/navbar') %>
-
+    <%- include('./partials/navbar') %> <% if(myProperty) { %>
+    <h1 class="text-center m-4">My Properites</h1>
+    <% } else {%>
     <span class="navbar navbar-light bg-light">
       <div class="container">
         <div class="dropdown ml-auto">
@@ -28,6 +29,7 @@
         </div>
       </div>
     </span>
+    <%}%>
 
     <div id="land_div" class="container">
       <h1 class="text-center">Lands</h1>
